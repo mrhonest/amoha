@@ -1,5 +1,5 @@
 // Fixture data
-
+/*
 Meteor.startup(function(){
 
 
@@ -286,3 +286,4 @@ Meteor.startup(function(){
 
     }
 });
+*/
