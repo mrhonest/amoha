@@ -1,9 +1,22 @@
 <template name="layout">
     <div class="container">
       {{> header}}
+
         {{> errors}}
-        <div id="main" class="row-fluid">
-          {{> yield}}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+
+                    {{>yield }}
+                </div>
+                <div class="col-md-4">
+
+                    {{>yield "rightContainer"}}
+                </div>
+            </div>
         </div>
+
+
     </div>
 </template>

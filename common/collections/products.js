@@ -6,6 +6,7 @@ AmohaCore = {};
 AmohaCore.Schemas = {};
 AmohaCore.Collections = {};
 
+//TODO: Do not hardcode here, should be a pull from the collection
 var serverOfferingValues =  ["Dedicated Compute",
     "Cloud Host Node",
     "Virtual Server Instance",

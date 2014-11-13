@@ -6,6 +6,7 @@
 var serverChassisCursor = Products.find({productCategory: "Server Chassis"});
 var scItems = [];
 
+
 serverChassisCursor.forEach(function(Products)
 {
     scItems.push(Products.name);

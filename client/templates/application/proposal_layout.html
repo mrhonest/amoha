@@ -1,0 +1,25 @@
+<template name="proposalLayout">
+<div class="container">
+  {{> header}}
+  {{> errors}}
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    Left
+                    {{>yield "leftContainer"}}
+                </div>
+                <div class="col-md-4">
+                    Middle
+                    {{>yield }}
+                </div>
+                <div class="col-md-4">
+                    Right
+                    {{>yield "rightContainer"}}
+                </div>
+            </div>
+        </div>
+
+</div>
+</template>
