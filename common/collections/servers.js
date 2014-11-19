@@ -4,12 +4,14 @@
 
 //build the options
 var serverChassisCursor = Products.find({productCategory: "Server Chassis"});
+//var serverChassisCursor = Products.find();
 var scItems = [];
 
-
+//TODO: Figure out why this array is not populating on the client side
 serverChassisCursor.forEach(function(Products)
 {
-    scItems.push(Products.name);
+    scItems.push(Products.name.toString());
+
 });
 
 //TODO: Dynamically load values from the collections
@@ -58,6 +60,7 @@ AmohaCore.Schemas.Servers = new SimpleSchema({
     },
     serverOffering: {
         type: String,
+
         label: "Server Offerings",
         allowedValues: serverOfferingValues
     },
@@ -96,8 +99,28 @@ AmohaCore.Schemas.Servers = new SimpleSchema({
         label: "Operating System",
         allowedValues: operatingSystemValues,
         max: 500
+    },
+    typeTest: {
+        type: String,
+            autoform: {
+
+
+            type: "select",
+                options: function () {
+                return [
+
+                    {label: "2013", value: 2013},
+                    {label: "2014", value: 2014},
+                    {label: "2015", value: 2015}
+                ];
+            }
+        }
     }
+
 });
+
+
+
 
 Servers = AmohaCore.Collections.Servers = new Mongo.Collection('servers');
 Servers.attachSchema(AmohaCore.Schemas.Servers);

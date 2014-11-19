@@ -1,8 +1,57 @@
 <template name="proposalSubmit">
 
-    <H2>Server Configuration</H2>
+    <H2>Proposal </H2>
 
-  {{> quickForm collection="Servers" id="insertServersForm" type="insert"}}
+    <div class="panel-group accordion accordion-semi" id="accordion3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion3" href="#ac3-1">
+                        <i class="fa fa-angle-right"></i> Customer
+                    </a>
+                </h4>
+            </div>
+            <div id="ac3-1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    We have a full documentation for every single thing in this template, let's check it out and if you need support with.
+
+                    {{>yield }}
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion3" href="#ac3-2">
+                        <i class="fa fa-angle-right"></i> Product Configurator
+                    </a>
+                </h4>
+            </div>
+            <div id="ac3-2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    We have a full documentation for every single thing in this template, let's check it out and if you need support with.
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion3" href="#ac3-3">
+                        <i class="fa fa-angle-right"></i> Add Ons
+                    </a>
+                </h4>
+            </div>
+            <div id="ac3-3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 

@@ -4,22 +4,69 @@
   {{> errors}}
 
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
-                    Left
-                    {{>yield "leftContainer"}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="panel-group accordion accordion-semi" id="accordion3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion3" href="#ac3-1">
+                                    <i class="fa fa-angle-right"></i> Customer
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="ac3-1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+
+                                {{>yield "panel1"}}
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion3" href="#ac3-2">
+                                    <i class="fa fa-angle-right"></i> Product Configurator
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="ac3-2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                We have a full documentation for every single thing in this template, let's check it out and if you need support with.
+
+                                {{>yield "panel2"}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion3" href="#ac3-3">
+                                    <i class="fa fa-angle-right"></i> Add Ons
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="ac3-3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non
+
+                                {{>yield "panel3"}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    Middle
-                    {{>yield }}
-                </div>
-                <div class="col-md-4">
-                    Right
-                    {{>yield "rightContainer"}}
-                </div>
+
+            </div>
+            <div class="col-md-4">
+
+                {{>yield "rightContainer"}}
             </div>
         </div>
-
+    </div>
 </div>
 </template>

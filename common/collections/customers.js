@@ -2,10 +2,12 @@
  * Created by sanathshetty on 11/6/14.
  */
 
-Customers = new Mongo.Collection('customers');
+AmohaCore = {};
+AmohaCore.Schemas = {};
+AmohaCore.Collections = {};
 
 //Schema to be used with autoform
-Customers.attachSchema(new SimpleSchema({
+AmohaCore.Schemas.Customers = new SimpleSchema({
         name: {
             type: String,
             label: "Company Name",
@@ -79,43 +81,7 @@ Customers.attachSchema(new SimpleSchema({
         label: "Email"
     }
 
-}));
-
-
-Meteor.methods({
-    customerInsert: function (customerAttributes) {
-
-
-        check(Meteor.userId(), String);
-        check(customerAttributes, {
-            name: String,
-            msa_number: String
-        });
-
-
-        //checking to see if the same customer name  has been posted before if so send the
-        //user to the post
-
-        var existCustomer = Customers.findOne({name: customerAttributes.name});
-        if (existCustomer) {
-            return {
-                customerExists: true
-
-            }
-        }
-
-
-        var user = Meteor.user();
-        //_.extend() method is part of the Underscore library, and simply lets you “extend”
-        // one object with the properties of another.
-        var customer = _.extend(customerAttributes, {
-            userId: user._id,
-            author: user.username,
-            submitted: new Date()
-        });
-        var customerID = Customers.insert(customer);
-        return {
-            _id: customerID
-        };
-    }
 });
+
+Customers = AmohaCore.Collections.Customers = new Mongo.Collection('customers');
+Customers.attachSchema(AmohaCore.Schemas.Customers);

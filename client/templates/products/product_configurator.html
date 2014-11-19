@@ -1,0 +1,38 @@
+<template name="productConfigurator">
+    <div class="block-flat">
+
+
+
+    {{#each productCats}}
+        <div class="header">
+            <h3>{{name}}</h3>
+        </div>
+        <div class="content">
+            <table class="no-border">
+                <thead class="no-border">
+                <tr>
+                    <th style="width:70%;">Product</th>
+                    <th style="width:10%;">Price</th>
+                    <th class="text-right">Choice</th>
+                </tr>
+                </thead>
+                <tbody class="no-border-y">
+                {{#each productsOfferings name}}
+                <tr>
+                    <td><strong>{{name}}</strong><br /> {{description}} </td>
+                    <td>$ {{cost}} </td>
+                    <td class="text-right"><input class="icheck" data-size="small" name="{{productCats.name}}" type="radio"></td>
+                </tr>
+                {{/each}}
+                </tbody>
+
+            </table>
+        </div>
+    {{/each}}
+        <button type="button" align="right" class="btn btn-primary">Add</button>
+
+
+    </div>
+
+
+</template>

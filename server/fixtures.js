@@ -1,5 +1,7 @@
 // Fixture data
-/*
+
+
+
 Meteor.startup(function(){
 
 
@@ -8,90 +10,91 @@ Meteor.startup(function(){
         var custID = Customers.insert({
             name: 'Acme inc',
             msa: '123456',
-            addressStreet: '123 Main Street',
-            addressCity: 'Anytown',
-            addressState: 'VA',
-            addressZip: '22202',
-            addressCountry: 'USA',
-            telephone: '123-231-2232',
-            fax: '321-534-3211',
-            technicalPOC: 'Mike Tech',
-            technicalPOCTel: '123-999-6666',
-            technicalPOCEmail: 'techy@acme.com',
-            administrativePOC: 'Mary Admin',
-            administrativePOCTel: '123-333-4444',
-            administrativePOCEmail: 'admin@acme.com',
-            billingPOC: 'Jane Billing',
-            billingPOCTel: '123-444-7777',
-            billingPOCEmail: "billing@acme.com"
+            address: {
+                'Street': '123 Main Street',
+                'State': 'VA',
+                'Zip': '22202',
+                'Country': 'USA',
+                'telephone': '1232312232',
+                'fax': '3215343211'
+            },
+
+            contacts: [{
+                type: "Technical Point of Contact",
+                name: "Mike Tech",
+                telephone: "123231234",
+                email: "techy@acme.com"},
+
+                {
+                    type: "Administrative Point of Contact",
+                    name: "Mike Admin",
+                    telephone: "123231234",
+                    email: "admin@acme.com"},
+
+            ]
+
 
         });
 
         var custID = Customers.insert({
-            name: 'Lucent Inc',
+            name: 'Double Apex',
             msa: '123456',
-            addressStreet: '123 Main Street',
-            addressCity: 'Anytown',
-            addressState: 'VA',
-            addressZip: '22202',
-            addressCountry: 'USA',
-            telephone: '123-231-2232',
-            fax: '321-534-3211',
-            technicalPOC: 'Mike Tech',
-            technicalPOCTel: '123-999-6666',
-            technicalPOCEmail: 'techy@acme.com',
-            administrativePOC: 'Mary Admin',
-            administrativePOCTel: '123-333-4444',
-            administrativePOCEmail: 'admin@acme.com',
-            billingPOC: 'Jane Billing',
-            billingPOCTel: '123-444-7777',
-            billingPOCEmail: "billing@acme.com"
+            address: {
+                'Street': '123 Main Street',
+                'State': 'VA',
+                'Zip': '22202',
+                'Country': 'USA',
+                'telephone': '1232312232',
+                'fax': '3215343211'
+            },
+
+            contacts: [{
+                type: "Technical Point of Contact",
+                name: "Mike Tech",
+                telephone: "123231234",
+                email: "techy@acme.com"},
+
+                {
+                    type: "Administrative Point of Contact",
+                    name: "Mike Admin",
+                    telephone: "123231234",
+                    email: "admin@acme.com"},
+
+            ]
+
 
         });
 
         var custID = Customers.insert({
-            name: 'DoubleApex inc',
+            name: 'Pepperidge Farms',
             msa: '123456',
-            addressStreet: '123 Main Street',
-            addressCity: 'Anytown',
-            addressState: 'VA',
-            addressZip: '22202',
-            addressCountry: 'USA',
-            telephone: '123-231-2232',
-            fax: '321-534-3211',
-            technicalPOC: 'Mike Tech',
-            technicalPOCTel: '123-999-6666',
-            technicalPOCEmail: 'techy@acme.com',
-            administrativePOC: 'Mary Admin',
-            administrativePOCTel: '123-333-4444',
-            administrativePOCEmail: 'admin@acme.com',
-            billingPOC: 'Jane Billing',
-            billingPOCTel: '123-444-7777',
-            billingPOCEmail: "billing@acme.com"
+            address: {
+                'Street': '123 Main Street',
+                'State': 'VA',
+                'Zip': '22202',
+                'Country': 'USA',
+                'telephone': '1232312232',
+                'fax': '3215343211'
+            },
+
+            contacts: [{
+                type: "Technical Point of Contact",
+                name: "Mike Tech",
+                telephone: "123231234",
+                email: "techy@acme.com"},
+
+                {
+                    type: "Administrative Point of Contact",
+                    name: "Mike Admin",
+                    telephone: "123231234",
+                    email: "admin@acme.com"},
+
+            ]
+
 
         });
 
-        var custID = Customers.insert({
-            name: 'Tech Syndicate Group',
-            msa: '123456',
-            addressStreet: '123 Main Street',
-            addressCity: 'Anytown',
-            addressState: 'VA',
-            addressZip: '22202',
-            addressCountry: 'USA',
-            telephone: '123-231-2232',
-            fax: '321-534-3211',
-            technicalPOC: 'Mike Tech',
-            technicalPOCTel: '123-999-6666',
-            technicalPOCEmail: 'techy@acme.com',
-            administrativePOC: 'Mary Admin',
-            administrativePOCTel: '123-333-4444',
-            administrativePOCEmail: 'admin@acme.com',
-            billingPOC: 'Jane Billing',
-            billingPOCTel: '123-444-7777',
-            billingPOCEmail: "billing@acme.com"
 
-        });
     }
 
 
@@ -101,6 +104,7 @@ Meteor.startup(function(){
 
         var prodCatID1 = ProductCategories.insert({
             name: 'Server Offering',
+            categoryType: "Server",
             description: 'Category Description for this Category, blah blah blah blah',
             active: 'yes'
         });
@@ -108,6 +112,8 @@ Meteor.startup(function(){
         //now insert products under this category
         Products.insert({
             product_category_id: prodCatID1,
+            productCategory: 'Server Offering',
+            productType: "Server",
             name: 'Unitas Dedicated Server',
             description: 'A dedicated Unitas server for you',
             cost: 1000,
@@ -117,6 +123,8 @@ Meteor.startup(function(){
 
         Products.insert({
             product_category_id: prodCatID1,
+            productCategory: 'Server Offering',
+            productType: "Server",
             name: 'EPC Host Node',
             description: 'A EPC Host Node for you',
             cost: 500,
@@ -129,11 +137,14 @@ Meteor.startup(function(){
         var prodCatID2 = ProductCategories.insert({
             name: 'Operating System',
             description: 'Operating Systems offered by us',
+            categoryType : "Server",
             active: 'yes'
         });
 
         Products.insert({
             product_category_id: prodCatID2,
+            productCategory: 'Operating System',
+            productType: "Server",
             name: 'Windows 2008 R2 Enterprise Edition 64 bit Managed Operating System',
             description: 'Windows 2008 R2 Enterprise Edition 64 bit Managed Operating System description',
             cost: 1000,
@@ -142,6 +153,8 @@ Meteor.startup(function(){
 
         Products.insert({
             product_category_id: prodCatID2,
+            productCategory: 'Operating System',
+            productType: "Server",
             name: 'Windows Server 2012 R2 Enterprise 64 bit Managed Operating System',
             description: 'Windows Server 2012 R2 Enterprise 64 bit Managed Operating System description',
             cost: 1000,
@@ -155,53 +168,63 @@ Meteor.startup(function(){
             active: 'yes'
         });
 
+
+
         Products.insert({
             product_category_id: prodCatID3,
+            productCategory: 'Server Chassis',
+            productType: "Server",
             name: 'Quanta QCT S210-X12RS',
             description: 'Dual proc E5-2600 v2, 24x memory slots, 10x 2.5" drives',
             cost: 1220,
             loadedCost: 1400,
-            details: {
-                class: 'Small',
-                rack_units: 1
-            }
+            details: [{ "name": "Class",  "description": "Class Description", "value": "Small" },
+                      { "name": "Rack Units",  "description": "Rack Units used", "value": "2" },]
         });
+
+
 
         Products.insert({
             product_category_id: prodCatID3,
+            productCategory: 'Server Chassis',
+            productType: "Server",
             name: 'Quanta QCT S210-X22RQ',
             description: 'Dual proc E5-2600 v2, 24x memory slots, 24x 2.5" drives',
             cost: 1390,
             loadedCost: 1500,
-            details: {
-                class: 'Medium',
-                rack_units: 2
-            }
+            details: [{ "name": "Class",  "description": "Class Description", "value": "Medium" },
+                { "name": "Rack Units",  "description": "Rack Units used", "value": "4" },]
+
         });
+
 
         Products.insert({
             product_category_id: prodCatID3,
+            productCategory: 'Server Chassis',
+            productType: "Server",
             name: 'Quanta QCT S400-X44E',
             description: 'Quad proc E5-4600 v2, 48x memory slots, 8x 2.5" drives',
             cost: 2480,
             loadedCost: 3500,
-            details: {
-                class: 'Large',
-                rack_units: 4
-            }
+            details: [{ "name": "Class",  "description": "Class Description", "value": "Large" },
+                { "name": "Rack Units",  "description": "Rack Units used", "value": "4" },]
         });
 
         //cat 4
         //CPU subcategories present
         var prodCatID4 = ProductCategories.insert({
             name: 'CPU Family',
+            categoryType: "Server",
             description: 'CPU Family offered by us',
             active: 'yes',
             parent: null
         });
 
+        /*
         //subcat 1
         var prodCatID4a = ProductCategories.insert({
+            productCategory: 'CPU Family',
+            categoryType: "Server",
             name: 'E5-2600 CPU Family',
             description: 'ES-2600 CPU Family',
             active: 'yes',
@@ -211,41 +234,47 @@ Meteor.startup(function(){
 
         Products.insert({
             product_category_id: prodCatID4a,
+            productCategory: 'CPU Family',
+            productType: "Server",
             name: 'Single E5-2620 6-Core',
             description: 'Single E5-2620 6-Core',
             cost: 386,
             loadedCost: 434,
-            details: {
-                Cores: 6,
-                threads: 12,
-                vCPU_per_core: 8
-            }
+            details: [{ "name": "Cores",  "description": "Number of Cores", "value": 6 },
+                { "name": "Threads",  "description": "Number of Threads", "value": 12 },
+                { "name": "vCPU per core",  "description": "Virtual CPU Per Core", "value": 8 },
+            ]
+
         });
 
         Products.insert({
             product_category_id: prodCatID4a,
+            productCategory: 'CPU Family',
+            productType: "Server",
             name: 'Dual E5-2620 6-Core (12 cores total)',
             description: 'Dual E5-2620 6-Core (12 cores total)',
             cost: 386,
             loadedCost: 434,
-            details: {
-                Cores: 6,
-                threads: 12,
-                vCPU_per_core: 8
-            }
+            details: [{ "name": "Cores",  "description": "Number of Cores", "value": 6 },
+                { "name": "Threads",  "description": "Number of Threads", "value": 12 },
+                { "name": "vCPU per core",  "description": "Virtual CPU Per Core", "value": 8 },
+            ]
+
         });
 
         Products.insert({
             product_category_id: prodCatID4a,
+            productCategory: 'CPU Family',
+            productType: "Server",
             name: 'Dual E5-2650v2 8-Core (16 cores total)',
             description: 'Dual E5-2650v2 8-Core (16 cores total)',
             cost: 2265.12,
             loadedCost: 2941.39,
-            details: {
-                Cores: 16,
-                threads: 32,
-                vCPU_per_core: 12
-            }
+            details: [{ "name": "Cores",  "description": "Number of Cores", "value": 16 },
+                { "name": "Threads",  "description": "Number of Threads", "value": 32 },
+                { "name": "vCPU per core",  "description": "Virtual CPU Per Core", "value": 12 },
+            ]
+
         });
 
 
@@ -253,37 +282,153 @@ Meteor.startup(function(){
         var prodCatID4b = ProductCategories.insert({
             name: 'E5-4600 CPU Family',
             description: 'E5-4600 CPU Family',
+            categoryType: "Server",
             active: 'yes',
             parent: prodCatID4
         })
 
         Products.insert({
             product_category_id: prodCatID4b,
+            productCategory: 'CPU Family',
+            productType: "Server",
             name: 'Dual E5-4620v2 8-Core (16 cores total',
             description: 'Dual E5-4620v2 8-Core (16 cores total',
             cost: 3065.92,
             loadedCost: 3449.12,
-            details: {
-                Cores: 16,
-                threads: 32,
-                vCPU_per_core: 12
-            }
+            details: [{ "name": "Cores",  "description": "Number of Cores", "value": 16 },
+                { "name": "Threads",  "description": "Number of Threads", "value": 32 },
+                { "name": "vCPU per core",  "description": "Virtual CPU Per Core", "value": 12 },
+            ]
+
         });
 
         Products.insert({
             product_category_id: prodCatID4b,
+            productCategory: 'CPU Family',
+            productType: "Server",
             name: 'Quad E5-4620v2 8-Core (32 cores total)',
             description: 'Quad E5-4620v2 8-Core (32 cores total)',
             cost: 3065.92,
             loadedCost: 6131.84,
-            details: {
-                Cores: 32,
-                threads: 64,
-                vCPU_per_core: 16
-            }
+            details: [{ "name": "Cores",  "description": "Number of Cores", "value": 32 },
+                { "name": "Threads",  "description": "Number of Threads", "value": 64 },
+                { "name": "vCPU per core",  "description": "Virtual CPU Per Core", "value": 12 },
+            ]
+        });
+*/
+
+        //Disks
+        var prodCatID5 = ProductCategories.insert({
+            name: 'Disks',
+            description: 'Disks offered by us',
+            categoryType: "Server",
+            active: 'yes'
         });
 
 
+        Products.insert({
+            product_category_id: prodCatID5,
+            productCategory: 'Disks',
+            productType: "Server",
+            name: "300GB SAS 6G 2.5\"",
+            description: "300GB SAS 6G 2.5\"",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
+
+        Products.insert({
+            product_category_id: prodCatID5,
+            productCategory: 'Disks',
+            productType: "Server",
+            name:  "1TB SAS 7.2k 2.5\"",
+            description:  "1TB SAS 7.2k 2.5\"",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
+
+        Products.insert({
+            product_category_id: prodCatID5,
+            productCategory: 'Disks',
+            productType: "Server",
+            name:  "1.2TB SAS 6G 2.5\"",
+            description:  "1.2TB SAS 6G 2.5\"",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
+        Products.insert({
+            product_category_id: prodCatID5,
+            productCategory: 'Disks',
+            productType: "Server",
+            name: "2TB SAS 7.2k 2.5\"",
+            description: "2TB SAS 7.2k 2.5\"",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
+        Products.insert({
+            product_category_id: prodCatID5,
+            productCategory: 'Disks',
+            productType: "Server",
+            name: "2TB SAS 7.2k 2.5\"",
+            description: "2TB SAS 7.2k 2.5\"",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
+        Products.insert({
+            product_category_id: prodCatID5,
+            productCategory: 'Disks',
+            productType: "Server",
+            name:  "3TB SAS 7.2k 2.5\"",
+            description:  "3TB SAS 7.2k 2.5\"",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
+
+        //network
+        var networkValues = ["Built-In 1GbE",
+            "Optional 10GbE"];
+        //Disks
+        var prodCatID6 = ProductCategories.insert({
+            name: 'Network',
+            description: 'Networks offered by us',
+            categoryType: "Server",
+            active: 'yes'
+        });
+
+
+        Products.insert({
+            product_category_id: prodCatID6,
+            productCategory: 'Network',
+            productType: "Server",
+            name: "Built-In 1GbE",
+            description: "Built-In 1GbE",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
+        Products.insert({
+            product_category_id: prodCatID6,
+            productCategory: 'Network',
+            productType: "Server",
+            name: "Optional 10GbE",
+            description: "Optional 10GbE description",
+            cost: 1220,
+            loadedCost: 1400
+
+        });
+
     }
 });
-*/
+

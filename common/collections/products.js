@@ -18,40 +18,59 @@ var serverOfferingValues =  ["Dedicated Compute",
     "Professional Services",
     "Internet Bandwidth"]
 
-AmohaCore.Schemas.Metafield = new SimpleSchema({
-        serverOffering: {
-            type: String,
-            label: "Server Offerings",
-            allowedValues: serverOfferingValues
-        },
-        key: {
+
+//Generic Details
+
+AmohaCore.Schemas.Details = new SimpleSchema({
+        name: {
             type: String,
             max: 30,
             optional: true
         },
-        namespace: {
+        description: {
             type: String,
-            max: 20,
-            optional: true
-        },
-        scope: {
-            type: String,
+            max: 50,
             optional: true
         },
         value: {
             type: String,
             optional: true
+        }
+        /*
+        scope: {
+            type: String,
+            optional: true
         },
+
         valueType: {
             type: String,
             optional: true
-        },
-        description: {
-            type: String,
-            optional: true
         }
+        */
+
+});
+
+
+//Known Product specific Details
+
+//CPU
+/*
+AmohaCore.Schemas.Details.CPU = new SimpleSchema({
+
+    cores: {
+        type: Number,
+        label: "Cores"
+    },
+    threads: {
+        type: Number,
+        label: "Threads"
+    },
+    vCPU: {
+        type: Number,
+        label: "Virtual CPUs Per Core"
     }
-);
+});
+*/
 
 
 AmohaCore.Schemas.Products = new SimpleSchema({
@@ -60,13 +79,13 @@ AmohaCore.Schemas.Products = new SimpleSchema({
             type: String,
             label: "Product Category",
             allowedValues: ["Server Offering",
-                            "Support Type",
-                            "Server Chassis",
-                            "CPU Type/Quantity",
-                            "Memory DIMM Size",
-                            "Disk Type",
-                            "Network",
-                            "Operating System"]
+                "Support Type",
+                "Server Chassis",
+                "CPU Family",
+                "Memory",
+                "Disks",
+                "Network",
+                "Operating System"]
         },
         name: {
             type: String,
@@ -82,7 +101,7 @@ AmohaCore.Schemas.Products = new SimpleSchema({
         productType: {
             type: String,
             label: "Product Type",
-            allowedValues: ["Server","Add-On"]
+            allowedValues: ["Server", "Add-On"]
         },
 
         cost: {
@@ -98,39 +117,26 @@ AmohaCore.Schemas.Products = new SimpleSchema({
             label: "Loaded Cost $"
 
         },
-//creating an metafields object array
 
-        metafields: {
-            type: [AmohaCore.Schemas.Metafield],
-            optional: true
-
-        },
+        //TODO: Use a product specfic detail object if we already know the details, eg: Server Chassis has a "Rack Unit" Detail attribute
 
         details: {
-            type: Array,
+            type: [AmohaCore.Schemas.Details],
             optional: true
-        },
-        'details.$': {
-            type: Object
-        },
-        'details.$.cores': {
-            type: Number,
-            label: "Cores"
-        },
-        'details.$.threads': {
-            type: Number,
-            label: "Threads"
-        },
-        'details.$.vCPU': {
-            type: Number,
-            label: "Virtual CPUs Per Core"
         }
+
+        /*
+         details: {
+         type: Array,
+         optional: true,
+         label: "Details"
+
+
+         }
+         */
     }
 );
 
 //TODO: Figure out global object scope so that this does not need to happen
 Products = AmohaCore.Collections.Products = new Mongo.Collection('products');
 Products.attachSchema(AmohaCore.Schemas.Products);
-/**
- * Created by sanathshetty on 11/12/14.
- */
