@@ -117,28 +117,55 @@ Servers.attachSchema(AmohaCore.Schemas.Servers);
 
 Meteor.methods({
     serverInsert: function(postAttributes) {
+        //check(Meteor.userId(), String);
+        check(postAttributes, {
+            prodlist: Array
 
+        });
 
-        productIDsInServer
+        var productInServer = [];
+        var totalServerCost = 0;
+
+        //build products array for this server based on prodList
+
+        for (var i in postAttributes.prodlist){
+            console.log("prodID "+postAttributes.prodlist[i]);
+            var prodID = postAttributes.prodlist[i];
+
+            var prodCursor = Products.findOne({_id: prodID});
+
+            console.log("prodCursor "+prodCursor.toString());
+
+            //build the product object
+            var currentProduct = {
+                    productId: prodID,
+                    productName: prodCursor.name,
+                    productCategory: prodCursor.productCategory,
+                    productCost: prodCursor.cost
+            }
+
+            //add to array
+            productInServer[i] = currentProduct;
+
+            //calc total server cost
+            totalServerCost += prodCursor.cost;
+
+            console.log("productInServer "+ productInServer);
+            console.log("prodCursor.name "+prodCursor.name);
+        }
 
         var serverID = Servers.insert({
                 name: 'Server test post',
-                productsInServer:   [{ "productId": "1234451",  "productName": "Name of the product 1", "productCategory": "CPU", "productCost": 1200 },
-                    { "productId": "1234452",  "productName": "Name of the product 2", "productCategory": "CPU", "productCost": 1200 },
-                    { "productId": "1234453",  "productName": "Name of the product 3", "productCategory": "CPU", "productCost": 1200 },
-                    { "productId": "1234454",  "productName": "Name of the product 4", "productCategory": "CPU", "productCost": 1200 },
-                    { "productId": "1234455",  "productName": "Name of the product 5", "productCategory": "CPU", "productCost": 1200 },
-                    { "productId": "1234456",  "productName": "Name of the product 6", "productCategory": "CPU", "productCost": 1200 },
-                    { "productId": "1234457",  "productName": "Name of the product 7", "productCategory": "CPU", "productCost": 1200 },
-                    { "productId": "1234458",  "productName": "Name of the product 8", "productCategory": "CPU", "productCost": 1200 }],
-                totalServerPrice: 12999,
-                sessionID: "my session id",
+                productsInServer:   productInServer,
+                totalServerPrice: totalServerCost,
+                //TODO Use real session ID here
+                sessionID: "TestSessionID123",
                 status: "In-Cart"
 
             }
         );
 
-        console.log("In here" + productIDsInServer);
+      // console.log("In here" + productIDsInServer);
 
         return serverID;
 

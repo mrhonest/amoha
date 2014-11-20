@@ -433,7 +433,7 @@ Meteor.startup(function(){
 
 
         //Server add
-
+/*
         if (Servers.find().count() == 0) {
 
             var prod1 = Products.findOne({productCategory: "Network"});
@@ -483,9 +483,11 @@ Meteor.startup(function(){
 
         }
 
-
+ */
     }
+
 });
+
 
 
 

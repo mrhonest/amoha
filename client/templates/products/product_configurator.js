@@ -45,7 +45,7 @@ Template.productConfigurator.events({
         var Servers = AmohaCore.Collections.Servers;
 
         //build the product IDs Array
-
+        //TODO Iterate thur the hashmap of radio controls instead of hardcording the names
         //Server Offering
         var serverOffering = $('input:radio[name="Server Offering"]:checked').val();
 
@@ -91,9 +91,43 @@ Template.productConfigurator.events({
             alert("Not Checked");
         }
 
-        //add to server testing
+        //Disks
+        var disks = $('input:radio[name="Disks"]:checked').val();
 
-         Meteor.call('serverInsert', productIDsInServer, function(error, result) {
+        if (disks){
+
+            console.log("Disk  " + disks);
+            //add the ID
+            productIDsInServer.push(disks);
+            console.log(productIDsInServer);
+
+        }else{
+
+            alert("Not Checked");
+        }
+
+        //Network
+        var network = $('input:radio[name="Network"]:checked').val();
+
+        if (network){
+
+            console.log("network  " + network);
+            //add the ID
+            productIDsInServer.push(network);
+            console.log(productIDsInServer);
+
+        }else{
+
+            throwError("Network Option not chosen");
+        }
+
+
+        //add to server testing
+        var productIDList = {
+            prodlist: productIDsInServer
+        }
+
+         Meteor.call('serverInsert', productIDList, function(error, result) {
             // display the error to the user and abort
             if (error)
                 return throwError(error.reason);
