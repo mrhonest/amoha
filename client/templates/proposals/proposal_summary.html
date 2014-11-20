@@ -57,55 +57,28 @@
 
     <div class="block-flat">
         <div class="header">
-            <h2>Deal Summary</h2>
+            <h5>Deal Summary</h5>
         </div>
         <div class="content">
             <table class="no-border">
                 <thead class="no-border">
                 <tr>
-                    <th style="width:40%;"></th>
+                    <th style="width:20%;"></th>
                     <th class="text-center">12 Months</th>
                     <th class="text-center primary-emphasis">24 Months</th>
-                    <th class="text-center">34 Months</th>
+                    <th class="text-center">36 Months</th>
                 </tr>
                 </thead>
+
                 <tbody class="no-border-y">
+                {{#each servers}}
                 <tr>
-                    <td>Server 1</td>
-                    <td class="text-center"><i class="fa fa-check"></i></td>
-                    <td class="text-center primary-emphasis"><i class="fa fa-check"></i></td>
-                    <td class="text-center"><i class="fa fa-check"></i></td>
+                    <td>{{name}}</td>
+                    <td class="text-center">${{divTotal totalServerPrice 12}}</td>
+                    <td class="text-center primary-emphasis-dark">${{divTotal totalServerPrice 24}}</td>
+                    <td class="text-center">${{divTotal totalServerPrice 36}}</td>
                 </tr>
-                <tr>
-                    <td>Server 1</td>
-                    <td class="text-center"><i class="fa fa-times"></i></td>
-                    <td class="text-center primary-emphasis"><i class="fa fa-check"></i></td>
-                    <td class="text-center"><i class="fa fa-check"></i></td>
-                </tr>
-                <tr>
-                    <td>Server 1e</td>
-                    <td class="text-center">10 GB</td>
-                    <td class="text-center primary-emphasis">100 GB</td>
-                    <td class="text-center">1 TB</td>
-                </tr>
-                <tr>
-                    <td>Add On Service</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center primary-emphasis">50</td>
-                    <td class="text-center">100</td>
-                </tr>
-                <tr>
-                    <td>Free Support</td>
-                    <td class="text-center"><i class="fa fa-times"></i></td>
-                    <td class="text-center primary-emphasis"><i class="fa fa-times"></i></td>
-                    <td class="text-center"><i class="fa fa-check"></i></td>
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    <td class="text-center">$20 / Month</td>
-                    <td class="text-center primary-emphasis-dark">$50 / Month</td>
-                    <td class="text-center">$100 / Month</td>
-                </tr>
+                {{/each}}
                 </tbody>
             </table>
         </div>

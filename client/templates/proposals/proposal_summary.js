@@ -13,5 +13,10 @@ Template.proposalSummary.helpers({
     servers: function(){
 
         return Servers.find();
+    },
+    //cal monthly costs
+    divTotal: function(number, divVal){
+        return parseFloat(Math.round(number / divVal).toFixed(2));
     }
 })
+

@@ -141,7 +141,7 @@ Meteor.methods({
                     productId: prodID,
                     productName: prodCursor.name,
                     productCategory: prodCursor.productCategory,
-                    productCost: prodCursor.cost
+                    productCost: Math.round(prodCursor.cost)
             }
 
             //add to array
@@ -155,9 +155,10 @@ Meteor.methods({
         }
 
         var serverID = Servers.insert({
-                name: 'Server test post',
+                //TODO get server count from Session
+                name: 'Server 1',
                 productsInServer:   productInServer,
-                totalServerPrice: totalServerCost,
+                totalServerPrice: Math.round(totalServerCost),
                 //TODO Use real session ID here
                 sessionID: "TestSessionID123",
                 status: "In-Cart"

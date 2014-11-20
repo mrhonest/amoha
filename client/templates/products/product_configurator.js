@@ -4,7 +4,7 @@
 
 AmohaCore = {};
 AmohaCore.Schemas = {};
-AmohaCore.Collections = {};
+AmohaCore.Collectaions = {};
 
 
 
@@ -58,7 +58,7 @@ Template.productConfigurator.events({
 
         }else{
 
-            alert("Server Offering Not Checked");
+            throwError("Server Offering Not Checked");
         }
 
         //Operating System
@@ -73,7 +73,7 @@ Template.productConfigurator.events({
 
         }else{
 
-            alert("Server Offering Not Checked");
+            throwError("OS Server Offering Not Checked");
         }
 
         //CPU
@@ -88,7 +88,7 @@ Template.productConfigurator.events({
 
         }else{
 
-            alert("Not Checked");
+            throwError("CPU Not Checked");
         }
 
         //Disks
@@ -103,7 +103,7 @@ Template.productConfigurator.events({
 
         }else{
 
-            alert("Not Checked");
+            throwError("Disks Not Checked");
         }
 
         //Network
@@ -141,8 +141,6 @@ Template.productConfigurator.events({
                 throwError('This link has already been posted');
             */
         });
-
-        console.log("Server ID" + servID);
 
         //set this value in the Session
         Session.set("productIDsInServer", productIDsInServer);
