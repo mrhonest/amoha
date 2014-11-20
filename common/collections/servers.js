@@ -2,6 +2,10 @@
  * Created by sanathshetty on 11/12/14.
  */
 
+AmohaCore = {};
+AmohaCore.Schemas = {};
+AmohaCore.Collections = {};
+
 //build the options
 var serverChassisCursor = Products.find({productCategory: "Server Chassis"});
 //var serverChassisCursor = Products.find();
@@ -15,7 +19,7 @@ serverChassisCursor.forEach(function(Products)
 });
 
 //TODO: Dynamically load values from the collections
-
+/*
 var serverOfferingValues =  ["Dedicated Compute",
                             "Cloud Host Node",
                             "Virtual Server Instance",
@@ -52,75 +56,126 @@ var networkValues = ["Built-In 1GbE",
 var operatingSystemValues = ["Windows 2008 R2 Enterprise Edition 64 bit Managed Operating System",
                             "Windows Server 2008 R2 Enterprise 64 bit Managed Operating System"]
 
+*/
 
 AmohaCore.Schemas.Servers = new SimpleSchema({
     name: {
         type: String,
-        label: "Server Name"
+        label: "Server Name",
+        optional: true
     },
-    serverOffering: {
-        type: String,
-
-        label: "Server Offerings",
-        allowedValues: serverOfferingValues
-    },
-    supportType: {
-        type: String,
-        label: "Support Type",
-        allowedValues: supportTypeValues,
-        max: 200
-    },
-    chassis: {
-        type: String,
-        label: "Server Chassis",
-        allowedValues: serverChassisValues
-
-    },
-    cpu: {
-        type: String,
-        label: "CPU Type",
-        allowedValues: CPUValues,
-        max: 500
-    },
-    disk: {
-        type: String,
-        label: "Disk Type",
-        allowedValues: diskValues,
-        max: 500
-    },
-    network: {
-        type: String,
-        label: "Network",
-        allowedValues: networkValues,
-        max: 500
-    },
-    operatingSystem: {
-        type: String,
-        label: "Operating System",
-        allowedValues: operatingSystemValues,
-        max: 500
-    },
-    typeTest: {
-        type: String,
-            autoform: {
 
 
-            type: "select",
-                options: function () {
-                return [
+    productsInServer: {
+        type: Array,
+        label: "Products List",
+        optional: true
+    },
+        'productsInServer.$': {
+            type: Object,
+            optional: true
+        },
+        'productsInServer.$.productId': {
+            type: String,
+            label: "Product ID"
+        },
+        'productsInServer.$.productName': {
+            type: String,
+            label: "Product Name"
+        },
+        'productsInServer.$.productCategory': {
+            type: String,
+            label: "Product Category"
+        },
+        'productsInServer.$.productCost': {
+            type: Number,
+            label: "Product Cost"
+        },
 
-                    {label: "2013", value: 2013},
-                    {label: "2014", value: 2014},
-                    {label: "2015", value: 2015}
-                ];
-            }
-        }
+    totalServerPrice: {
+        type: Number,
+        label: "Total Price",
+        optional: true
+    },
+    sessionID: {
+        type: String,
+        label: "Session ID",
+        optional: true
+    },
+    status: {
+        type: String,
+        label: "Status",
+        optional: true,
+        allowedValues: ["In-Cart", "Check-Out", "Sold"]
     }
 
 });
 
-
-
-
 Servers = AmohaCore.Collections.Servers = new Mongo.Collection('servers');
 Servers.attachSchema(AmohaCore.Schemas.Servers);
+
+
+Meteor.methods({
+    serverInsert: function(postAttributes) {
+
+
+        productIDsInServer
+
+        var serverID = Servers.insert({
+                name: 'Server test post',
+                productsInServer:   [{ "productId": "1234451",  "productName": "Name of the product 1", "productCategory": "CPU", "productCost": 1200 },
+                    { "productId": "1234452",  "productName": "Name of the product 2", "productCategory": "CPU", "productCost": 1200 },
+                    { "productId": "1234453",  "productName": "Name of the product 3", "productCategory": "CPU", "productCost": 1200 },
+                    { "productId": "1234454",  "productName": "Name of the product 4", "productCategory": "CPU", "productCost": 1200 },
+                    { "productId": "1234455",  "productName": "Name of the product 5", "productCategory": "CPU", "productCost": 1200 },
+                    { "productId": "1234456",  "productName": "Name of the product 6", "productCategory": "CPU", "productCost": 1200 },
+                    { "productId": "1234457",  "productName": "Name of the product 7", "productCategory": "CPU", "productCost": 1200 },
+                    { "productId": "1234458",  "productName": "Name of the product 8", "productCategory": "CPU", "productCost": 1200 }],
+                totalServerPrice: 12999,
+                sessionID: "my session id",
+                status: "In-Cart"
+
+            }
+        );
+
+        console.log("In here" + productIDsInServer);
+
+        return serverID;
+
+        /*
+        //validation: Serverside to make sure title and url is not blank
+        var errors = validatePost(postAttributes);
+        if (errors.title || errors.url)
+            throw new Meteor.Error('invalid-post', "You must set a title and URL for your post");
+
+        //checking to see if the same url has been posted before if so send the
+        //user to the post
+        var postWithSameLink = Posts.findOne({url: postAttributes.url});
+        if (postWithSameLink) {
+            return {
+                postExists: true,
+                _id: postWithSameLink._id
+            }
+        }
+        */
+
+
+        var user = Meteor.user();
+        //_.extend() method is part of the Underscore library, and simply lets you “extend”
+        // one object with the properties of another.
+
+        /*
+        var post = _.extend(postAttributes, {
+            userId: user._id,
+            author: user.username,
+            submitted: new Date()
+        });
+        var postId = Posts.insert(post);
+        return {
+            _id: postId
+        };
+        */
+    }
+
+
+});

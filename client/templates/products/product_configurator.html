@@ -1,12 +1,14 @@
 <template name="productConfigurator">
     <div class="block-flat">
 
-
+        <form id="productConfigurator"  class="main form">
 
     {{#each productCats}}
         <div class="header">
-            <h3>{{name}}</h3>
+            <h5>{{name}}</h5>
         </div>
+
+
         <div class="content">
             <table class="no-border">
                 <thead class="no-border">
@@ -21,7 +23,9 @@
                 <tr>
                     <td><strong>{{name}}</strong><br /> {{description}} </td>
                     <td>$ {{cost}} </td>
-                    <td class="text-right"><input class="icheck" data-size="small" name="{{productCats.name}}" type="radio"></td>
+                    <td class="text-right"><input class="icheck" data-size="small" required parsley-type="radio"  name="{{productCategory}}" value="{{_id}}" type="radio">
+
+                    </td>
                 </tr>
                 {{/each}}
                 </tbody>
@@ -29,10 +33,20 @@
             </table>
         </div>
     {{/each}}
-        <button type="button" align="right" class="btn btn-primary">Add</button>
+            <!--
+        <button type="button" align="right" class="btn btn-success addCart">Add</button>
+
+        <input placeholder="Qty" class="input input-mini prodqty" value="0"/><a class="btn btn-success btn-mini addcart" href="#">Add</a>
+            -->
+        <input type="submit" value="Add" class="btn btn-group-xs btn-primary"/>
+
+
+        </form>
 
 
     </div>
+
+
 
 
 </template>

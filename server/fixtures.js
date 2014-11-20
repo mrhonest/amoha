@@ -213,7 +213,7 @@ Meteor.startup(function(){
         //cat 4
         //CPU subcategories present
         var prodCatID4 = ProductCategories.insert({
-            name: 'CPU Family',
+            name: 'CPU',
             categoryType: "Server",
             description: 'CPU Family offered by us',
             active: 'yes',
@@ -231,10 +231,11 @@ Meteor.startup(function(){
             parent: prodCatID4
         });
 ;
+*/
 
         Products.insert({
-            product_category_id: prodCatID4a,
-            productCategory: 'CPU Family',
+            product_category_id: prodCatID4,
+            productCategory: 'CPU',
             productType: "Server",
             name: 'Single E5-2620 6-Core',
             description: 'Single E5-2620 6-Core',
@@ -248,8 +249,8 @@ Meteor.startup(function(){
         });
 
         Products.insert({
-            product_category_id: prodCatID4a,
-            productCategory: 'CPU Family',
+            product_category_id: prodCatID4,
+            productCategory: 'CPU',
             productType: "Server",
             name: 'Dual E5-2620 6-Core (12 cores total)',
             description: 'Dual E5-2620 6-Core (12 cores total)',
@@ -263,8 +264,8 @@ Meteor.startup(function(){
         });
 
         Products.insert({
-            product_category_id: prodCatID4a,
-            productCategory: 'CPU Family',
+            product_category_id: prodCatID4,
+            productCategory: 'CPU',
             productType: "Server",
             name: 'Dual E5-2650v2 8-Core (16 cores total)',
             description: 'Dual E5-2650v2 8-Core (16 cores total)',
@@ -277,7 +278,7 @@ Meteor.startup(function(){
 
         });
 
-
+/*
         //subcat 2
         var prodCatID4b = ProductCategories.insert({
             name: 'E5-4600 CPU Family',
@@ -286,10 +287,10 @@ Meteor.startup(function(){
             active: 'yes',
             parent: prodCatID4
         })
-
+*/
         Products.insert({
-            product_category_id: prodCatID4b,
-            productCategory: 'CPU Family',
+            product_category_id: prodCatID4,
+            productCategory: 'CPU',
             productType: "Server",
             name: 'Dual E5-4620v2 8-Core (16 cores total',
             description: 'Dual E5-4620v2 8-Core (16 cores total',
@@ -303,8 +304,8 @@ Meteor.startup(function(){
         });
 
         Products.insert({
-            product_category_id: prodCatID4b,
-            productCategory: 'CPU Family',
+            product_category_id: prodCatID4,
+            productCategory: 'CPU',
             productType: "Server",
             name: 'Quad E5-4620v2 8-Core (32 cores total)',
             description: 'Quad E5-4620v2 8-Core (32 cores total)',
@@ -315,7 +316,7 @@ Meteor.startup(function(){
                 { "name": "vCPU per core",  "description": "Virtual CPU Per Core", "value": 12 },
             ]
         });
-*/
+
 
         //Disks
         var prodCatID5 = ProductCategories.insert({
@@ -429,6 +430,62 @@ Meteor.startup(function(){
 
         });
 
+
+
+        //Server add
+
+        if (Servers.find().count() == 0) {
+
+            var prod1 = Products.findOne({productCategory: "Network"});
+
+
+            Servers.insert({
+                    name: 'Server 1',
+                    productsInServer:   [{ "productId": "1234451",  "productName": "Name of the product 1", "productCategory": "CPU", "productCost": 1200 },
+                                            { "productId": "1234452",  "productName": "Name of the product 2", "productCategory": "CPU", "productCost": 1200 },
+                                            { "productId": "1234453",  "productName": "Name of the product 3", "productCategory": "CPU", "productCost": 1200 },
+                                            { "productId": "1234454",  "productName": "Name of the product 4", "productCategory": "CPU", "productCost": 1200 },
+                                            { "productId": "1234455",  "productName": "Name of the product 5", "productCategory": "CPU", "productCost": 1200 },
+                                            { "productId": "1234456",  "productName": "Name of the product 6", "productCategory": "CPU", "productCost": 1200 },
+                                            { "productId": "1234457",  "productName": "Name of the product 7", "productCategory": "CPU", "productCost": 1200 },
+                                        { "productId": "1234458",  "productName": "Name of the product 8", "productCategory": "CPU", "productCost": 1200 }],
+                    totalServerPrice: 12999,
+                    sessionID: "my session id",
+                    status: "In-Cart"
+
+                }
+            );
+
+            Servers.insert({
+                    name: 'Server 2',
+                    productsInServer:   [{ "productId": "1234451",  "productName": "Name of the product 1", "productCategory": "CPU", "productCost": 1200 },
+                        { "productId": "1234452",  "productName": "Name of the product 2", "productCategory": "CPU", "productCost": 1200 },
+                        { "productId": "1234453",  "productName": "Name of the product 3", "productCategory": "CPU", "productCost": 1200 },
+                        { "productId": "1234458",  "productName": "Name of the product 8", "productCategory": "CPU", "productCost": 1200 }],
+                    totalServerPrice: 2999,
+                    sessionID: "my session id",
+                    status: "In-Cart"
+
+                }
+            );
+
+            Servers.insert({
+                    name: 'Server 3',
+                    productsInServer:   [{ "productId": "1234451",  "productName": "Name of the product 1", "productCategory": "CPU", "productCost": 1200 },
+                        { "productId": "1234452",  "productName": "Name of the product 2", "productCategory": "CPU", "productCost": 1200 },
+                        { "productId": "1234458",  "productName": "Name of the product 8", "productCategory": "CPU", "productCost": 1200 }],
+                    totalServerPrice: 2999,
+                    sessionID: "my session id",
+                    status: "In-Cart"
+
+                }
+            );
+
+        }
+
+
     }
 });
+
+
 

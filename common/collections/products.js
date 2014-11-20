@@ -81,7 +81,7 @@ AmohaCore.Schemas.Products = new SimpleSchema({
             allowedValues: ["Server Offering",
                 "Support Type",
                 "Server Chassis",
-                "CPU Family",
+                "CPU",
                 "Memory",
                 "Disks",
                 "Network",
