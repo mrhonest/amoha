@@ -1,13 +1,27 @@
 <template name="productsList">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel-group accordion accordion-semi" id="accordion3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion3" href="#ac3-1">
+                <i class="fa fa-angle-right"></i> Product List
+              </a>
+            </h4>
+          </div>
+          <div id="ac3-1" class="panel-collapse collapse in">
+            <div class="panel-body">
 
-    <h2>Product List</h2>
+              {{#each products}}
+              {{> productItem}}
+              {{/each}}
 
-    <div class="list-group">
-
-      {{#each products}}
-        {{> productItem}}
-      {{/each}}
-
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 </template>
