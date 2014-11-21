@@ -1,12 +1,29 @@
 <template name="customerList">
 
-    <h2>Customers List</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel-group accordion accordion-semi" id="accordion3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion3" href="#ac3-1">
+                <i class="fa fa-angle-right"></i> Customers List
+              </a>
+            </h4>
+          </div>
+          <div id="ac3-1" class="panel-collapse collapse in">
+            <div class="panel-body">
 
-    <div>
-        {{#each customers}}
-            {{> customerItem}}
-        {{/each}}
+              {{#each customers}}
+              {{> customerItem}}
+              {{/each}}
 
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 </template>
+
