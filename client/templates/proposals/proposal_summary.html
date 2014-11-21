@@ -2,23 +2,23 @@
 
     <div class="row">
         <div class="col-md-12">
-                    <div class="block-flat">
-                        <div class="header">
+            <div class="block-flat ">
+                <div class="header">
                     <h4>Cost Summary</h4>
                 </div>
                 <div class="content">
                     <table class="no-border">
                         <thead class="no-border">
-                        <tr>
-                            <th style="width:20%;"></th>
-                            <th class="text-center">12 Months</th>
-                            <th class="text-center primary-emphasis">24 Months</th>
-                            <th class="text-center">36 Months</th>
-                        </tr>
+                            <tr>
+                                <th style="width:20%;"></th>
+                                <th class="text-center">12 Months</th>
+                                <th class="text-center primary-emphasis">24 Months</th>
+                                <th class="text-center">36 Months</th>
+                            </tr>
                         </thead>
 
                         <tbody class="no-border-y">
-                        {{#each servers}}
+                            {{#each servers}}
                             <tr>
                                 <td>{{name}}</td>
                                 <td class="text-center">${{divTotal totalServerPrice 12}}</td>
@@ -26,14 +26,14 @@
                                 <td class="text-center">${{divTotal totalServerPrice 36}}</td>
                             </tr>
 
-                        {{/each}}
-                        <!-- TODO: Calculate actual totals here -->
-                        <tr class="success-emphasis-dark">
-                            <td><Strong>Total</Strong></td>
-                            <td class="text-center">$986</td>
-                            <td class="text-center primary-emphasis-dark">$493</td>
-                            <td class="text-center">$328</td>
-                        </tr>
+                            {{/each}}
+                            <!-- TODO: Calculate actual totals here -->
+                            <tr class="success-emphasis-dark">
+                                <td><Strong>Total</Strong></td>
+                                <td class="text-center">$986</td>
+                                <td class="text-center primary-emphasis-dark">$493</td>
+                                <td class="text-center">$328</td>
+                            </tr>
 
                         </tbody>
                     </table>
@@ -46,44 +46,52 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="block-flat">
-                <div class="header">
-                    <h4>Proposal Summary</h4>
-                </div>
-                <div class="content">
-                    <div class="table-responsive">
-                        {{#each servers}}
-                            <div class="label label-default">
-                                {{name}}
+            <div class="panel-group accordion accordion-semi" id="accordion3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-target="#propsum">
+                                <i class="fa fa-angle-right"></i> Proposal Summary
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="propsum" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                {{#each servers}}
+                                <div class="label label-default">
+                                    {{name}}
+                                </div>
+                                <table class="table no-border hover">
+                                    <thead class="no-border">
+                                        <tr>
+                                            <th style="width:2%;"><strong>Type</strong></th>
+                                            <th style="width:30%;"><strong>Name</strong></th>
+                                            <th class="text-right"><strong>Price</strong></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="no-border-y">
+                                        {{#each this.productsInServer}}
+                                        <tr>
+                                            <td>{{productCategory}}</td>
+                                            <td>{{productName}}</td>
+                                            <td class="text-right color-success">{{productCost}}</td>
+                                        </tr>
+                                        {{/each}}
+
+                                        <tr>
+                                            <td><strong>Total</strong></td>
+                                            <td></td>
+                                            <td class="text-right color-success"><strong>$ {{totalServerPrice}}</strong></td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                {{/each}}
                             </div>
-                        <table class="table no-border hover">
-                            <thead class="no-border">
-                            <tr>
-                                <th style="width:2%;"><strong>Type</strong></th>
-                                <th style="width:30%;"><strong>Name</strong></th>
-                                <th class="text-right"><strong>Price</strong></th>
-
-                            </tr>
-                            </thead>
-                            <tbody class="no-border-y">
-                            {{#each this.productsInServer}}
-                                <tr>
-                                    <td>{{productCategory}}</td>
-                                    <td>{{productName}}</td>
-                                    <td class="text-right color-success">{{productCost}}</td>
-                                </tr>
-                            {{/each}}
-
-                            <tr>
-                                <td><strong>Total</strong></td>
-                                <td></td>
-                                <td class="text-right color-success"><strong>$ {{totalServerPrice}}</strong></td>
-
-
-                            </tr>
-                            </tbody>
-                        </table>
-                        {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,4 +102,4 @@
 
 
 
-</template>
+        </template>
