@@ -2,9 +2,53 @@
 
     <div class="row">
         <div class="col-md-12">
+                    <div class="block-flat">
+                        <div class="header">
+                    <h4>Cost Summary</h4>
+                </div>
+                <div class="content">
+                    <table class="no-border">
+                        <thead class="no-border">
+                        <tr>
+                            <th style="width:20%;"></th>
+                            <th class="text-center">12 Months</th>
+                            <th class="text-center primary-emphasis">24 Months</th>
+                            <th class="text-center">36 Months</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="no-border-y">
+                        {{#each servers}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td class="text-center">${{divTotal totalServerPrice 12}}</td>
+                                <td class="text-center primary-emphasis-dark">${{divTotal totalServerPrice 24}}</td>
+                                <td class="text-center">${{divTotal totalServerPrice 36}}</td>
+                            </tr>
+
+                        {{/each}}
+                        <!-- TODO: Calculate actual totals here -->
+                        <tr class="success-emphasis-dark">
+                            <td><Strong>Total</Strong></td>
+                            <td class="text-center">$986</td>
+                            <td class="text-center primary-emphasis-dark">$493</td>
+                            <td class="text-center">$328</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
             <div class="block-flat">
                 <div class="header">
-                    <h5>Proposal Summary</h5>
+                    <h4>Proposal Summary</h4>
                 </div>
                 <div class="content">
                     <div class="table-responsive">
@@ -18,24 +62,16 @@
                                 <th style="width:2%;"><strong>Type</strong></th>
                                 <th style="width:30%;"><strong>Name</strong></th>
                                 <th class="text-right"><strong>Price</strong></th>
-                                <th style="width:15%;" class="text-center"><strong>Action</strong></th>
+
                             </tr>
                             </thead>
                             <tbody class="no-border-y">
                             {{#each this.productsInServer}}
-
-
-
                                 <tr>
                                     <td>{{productCategory}}</td>
                                     <td>{{productName}}</td>
                                     <td class="text-right color-success">{{productCost}}</td>
-
-                                    <td class="text-center"><a class="label label-default" href="#"><i class="fa fa-pencil"></i></a> <a class="label label-danger" href="#"><i class="fa fa-times"></i></a></td>
                                 </tr>
-
-
-
                             {{/each}}
 
                             <tr>
@@ -43,7 +79,7 @@
                                 <td></td>
                                 <td class="text-right color-success"><strong>$ {{totalServerPrice}}</strong></td>
 
-                                <td class="text-center"><a class="label label-default" href="#"><i class="fa fa-pencil"></i></a> <a class="label label-danger" href="#"><i class="fa fa-times"></i></a></td>
+
                             </tr>
                             </tbody>
                         </table>
@@ -55,34 +91,7 @@
     </div>
 
 
-    <div class="block-flat">
-        <div class="header">
-            <h5>Deal Summary</h5>
-        </div>
-        <div class="content">
-            <table class="no-border">
-                <thead class="no-border">
-                <tr>
-                    <th style="width:20%;"></th>
-                    <th class="text-center">12 Months</th>
-                    <th class="text-center primary-emphasis">24 Months</th>
-                    <th class="text-center">36 Months</th>
-                </tr>
-                </thead>
 
-                <tbody class="no-border-y">
-                {{#each servers}}
-                <tr>
-                    <td>{{name}}</td>
-                    <td class="text-center">${{divTotal totalServerPrice 12}}</td>
-                    <td class="text-center primary-emphasis-dark">${{divTotal totalServerPrice 24}}</td>
-                    <td class="text-center">${{divTotal totalServerPrice 36}}</td>
-                </tr>
-                {{/each}}
-                </tbody>
-            </table>
-        </div>
-    </div>
 
 
 </template>

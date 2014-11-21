@@ -1,27 +1,27 @@
 <template name="layout">
-    {{> header}}
-
-    <div class="cl-wrapper">
+    <div class="container">
+        {{> header}}
         {{> errors}}
 
-        <div class="cl-sidebar">
-            {{>yield "rightContainer"}}
-        </div>
+        <div class="main-wrap">
+            <div class="row">
 
-        <div class="container-fluid" id="pcont">
-            <div class="cl-mcont" >
-                <div class="row">
-                    <div class="col-md-8">
+                <div class="col-md-8">
 
-                             {{>yield }}
-                    </div>
-                    
+                     {{>yield}}
+
                 </div>
+
+
+                <div class="col-md-4">
+
+                         {{>yield "rightContainer"}}
+
+                </div>
+
             </div>
-            
         </div>
-    </div>
-    <div class="footer">
+
     </div>
 </template>
 

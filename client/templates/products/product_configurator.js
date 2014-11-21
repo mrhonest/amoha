@@ -6,6 +6,9 @@ AmohaCore = {};
 AmohaCore.Schemas = {};
 AmohaCore.Collectaions = {};
 
+Session.setDefault('productIDsInServer', null);
+//Session.setDefault('serverIDList', null);
+
 
 
 Template.productConfigurator.helpers({
@@ -39,6 +42,8 @@ Template.productConfigurator.events({
 
         //prevents the form from refreshing
         event.preventDefault();
+
+        Session.setDefault('serverIDList', null);
 
         //Ids of all the products selected
         var productIDsInServer = [];
@@ -121,13 +126,19 @@ Template.productConfigurator.events({
             throwError("Network Option not chosen");
         }
 
+        //set this value in the Session
+        Session.set("productIDsInServer", productIDsInServer);
 
         //add to server testing
         var productIDList = {
             prodlist: productIDsInServer
         }
 
-         Meteor.call('serverInsert', productIDList, function(error, result) {
+        var newServerID = "";
+        var result = "";
+        var serverIDList = [];
+
+          Meteor.call('serverInsert', productIDList, function(error, result) {
             // display the error to the user and abort
             if (error)
                 return throwError(error.reason);
@@ -140,12 +151,49 @@ Template.productConfigurator.events({
             if (result.postExists)
                 throwError('This link has already been posted');
             */
+
+              //a
+
+              //add serverID to session to keep track of all servers created in this session
+
+              newServerID = result;
+
+              console.log("result " + result);
+              console.log("newServerID " + newServerID);
+
+/*
+              if (Session.get("serverIDList")) {
+
+                  serverIDList = Session.get("serverIDList");
+                  Session.set ("serverIDList", serverIDList.push([newServerID]));
+                  console.log("serverIDList "+serverIDList);
+
+
+
+                  //iterate thru the session list
+                  for (var i in Session.get("serverIDList")) {
+                     // console.log("serverIDList " + Session.get("serverIDList")[i]);
+                  }
+
+
+              } else {
+                  console.log("Session blank");
+
+                  //init vars
+                  Session.set("serverIDList", [newServerID]);
+
+
+              }
+
+                //  console.log("Session.get(serverIDList) "+ Session.get("serverIDList"));
+              console.log("newServerID here " + newServerID);
+
+*/
         });
 
-        //set this value in the Session
-        Session.set("productIDsInServer", productIDsInServer);
 
 
+    }//end of submit form
 
-    }
+
 });

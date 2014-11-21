@@ -102,17 +102,35 @@ AmohaCore.Schemas.Servers = new SimpleSchema({
         label: "Session ID",
         optional: true
     },
+    /*
+    userID: {
+        type: String,
+        label: "User ID",
+        optional: true
+    },
+    */
     status: {
         type: String,
         label: "Status",
         optional: true,
-        allowedValues: ["In-Cart", "Check-Out", "Sold"]
+        allowedValues: ["In-Cart", "Check-Out", "Expired", "Sold"]
     }
 
 });
 
 Servers = AmohaCore.Collections.Servers = new Mongo.Collection('servers');
 Servers.attachSchema(AmohaCore.Schemas.Servers);
+
+//add a create date hook on insert
+Servers.before.insert(function (userId, doc) {
+    doc.createdAt = Date.now();
+});
+
+//add a update date hook on updates
+Servers.before.update(function (userId, doc) {
+    doc.updatedAt = Date.now();
+});
+
 
 
 Meteor.methods({
@@ -160,15 +178,25 @@ Meteor.methods({
                 productsInServer:   productInServer,
                 totalServerPrice: Math.round(totalServerCost),
                 //TODO Use real session ID here
-                sessionID: "TestSessionID123",
+                //sessionID: Meteor.call("getSessionID", function(err, id){ return id }),
+                //userID: Meteor.userId,
+
                 status: "In-Cart"
 
             }
         );
 
-      // console.log("In here" + productIDsInServer);
+       //now save the serverID in the session for this user
+        if (serverID)
+        {
+            return serverID;
 
-        return serverID;
+            //Session.set("serverIDList", serverID);
+        } else {
+
+            return null;
+        }
+
 
         /*
         //validation: Serverside to make sure title and url is not blank
