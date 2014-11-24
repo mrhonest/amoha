@@ -51,6 +51,36 @@ Template.productConfigurator.events({
 
         //build the product IDs Array
         //TODO Iterate thur the hashmap of radio controls instead of hardcording the names
+
+/*
+        var formResult = {};
+        formResult = document.getElementById('productConfigurator').elements;
+
+        for (var i=0; i < formResult.length; i++) {
+
+            var controlName = formResult[i].name;
+            var controlType = formResult[i].type;
+            var controlValue =formResult[i].value;
+
+            if (controlType == "radio"){
+
+
+
+            }
+
+            console.log("Type " + formResult[i].type);
+            console.log("Name " + formResult[i].name);
+            console.log("Value " + formResult[i].value);
+
+            var checkedValue = $('input:radio[name=\"'+controlName+'\"]:checked').val();
+            if (checkedValue)
+            {
+                productIDsInServer.push(checkedValue);
+                console.log("checkedValue " + checkedValue);
+            }
+
+        }
+*/
         //Server Offering
         var serverOffering = $('input:radio[name="Server Offering"]:checked').val();
 
