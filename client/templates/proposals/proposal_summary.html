@@ -59,8 +59,8 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 {{#each servers}}
-                                <div type="button" class="btn btn-primary" style="display:block" data-toggle="collapse" data-target="#propsum{{_id}}">{{name}}</div>   <!-- this is the unique id for each row -->
-                                <div class="collapse in" id="propsum{{_id}}">
+                                <div type="button" class="btn btn-primary" style="display:block" data-toggle="collapse" data-target="#propsum{{_id}}">{{name}} - ${{totalServerPrice}}</div>   <!-- this is the unique id for each row -->
+                                <div class="collapse" id="propsum{{_id}}">
                                     <table class="table no-border hover">
                                         <thead class="no-border">
                                             <tr>
