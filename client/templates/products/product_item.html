@@ -1,20 +1,23 @@
 <template name="productItem">
     <div class="post">
-    <div class="post-content">
-        <h3>{{name}}</h3>
-        <P>
-            <span class="label label-primary"> Category:</span> {{productCategory}}
-        </P>
-        <p>
-            Description:  {{description}}
-        </p>
-        <p>
-            Description:  {{description}}
-        </p>
-        <p>
-            Cost:  {{cost}} / Loaded Cost:  {{loadedCost}}
-        </p>
-        <p> <button type="button" class="btn btn-primary btn-xs">Edit</button>  <button type="button" class="btn btn-danger btn-xs">Delete</button></p>
-    </div>
-</div>
-</template>
+        <div class="post-content">
+
+            <h3 style="cursor:pointer" data-toggle="collapse" data-target="#details-{{_id}}">{{name}}</h3>
+
+            <div class="collapse" id="details-{{_id}}">
+                <P>
+                    <span class="label label-primary"> Category:</span> {{productCategory}}
+                </P>
+                <p>
+                    Description:  {{description}}
+                </p>
+                <p>
+                    Description:  {{description}}
+                </p>
+                <p>
+                    Cost:  {{cost}} / Loaded Cost:  {{loadedCost}}
+                </p>
+                <p> <button type="button" class="btn btn-primary btn-xs">Edit</button>  <button type="button" class="btn btn-danger btn-xs">Delete</button></p></div>
+            </div>
+        </div>
+    </template>
