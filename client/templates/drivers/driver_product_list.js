@@ -1,23 +1,25 @@
 /**
- * Created by sanathshetty on 11/19/14.
+ * Created by sanathshetty on 11/25/14.
+ */
+
+/**
+ * Created by sanathshetty on 11/25/14.
  */
 
 
-Template.proposalSummary.helpers({
+Template.driverProductList.helpers({
 
 
     userid: function(){
         return Meteor.userId()
     },
 
-    servers: function(){
+    driverProducts: function(){
 
-        //TODO: Add a session id here to only find servers related to this session
-        return Servers.find();
+        return DriversProduct.find();
     },
     //cal monthly costs
     divTotal: function(number, divVal){
         return parseFloat(Math.round(number / divVal).toFixed(2));
     }
 })
-

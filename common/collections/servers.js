@@ -174,7 +174,7 @@ Meteor.methods({
 
         var serverID = Servers.insert({
                 //TODO get server count from Session
-                name: 'Server 1',
+                name: 'Server ',
                 productsInServer:   productInServer,
                 totalServerPrice: Math.round(totalServerCost),
                 //TODO Use real session ID here

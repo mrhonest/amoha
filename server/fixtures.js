@@ -430,9 +430,58 @@ Meteor.startup(function(){
 
         });
 
+        /*
+        //model drivers all
+        if (Drivers.find().count() == 0) {
 
 
-        //Server add
+        //corporate assumptions
+            Drivers.insert({
+               // name: 'Corporate Assumptions',
+                productImpacted: "All",
+                details: [{ "name": "Cost of Money",  "description": "Standard Corporate Assumption - Applied as a % of Revenue", "value": 10, "valueType": "% Percentage" },
+                    { "name": "Sales & Marketing",  "description": "Standard Corporate Assumption - Applied as a % of Revenue", "value": 10, "valueType": "% Percentage" },
+                    { "name": "General & Administrative",  "description": "Standard Corporate Assumption - Applied as a % of Revenue", "value": 5, "valueType": "% Percentage" },
+                    { "name": "Contingency",  "description": "Standard Corporate Assumption - Applied as a % of Revenue", "value": 2.5, "valueType": "% Percentage" },
+                    { "name": "Commissions Expense",  "description": "Standard Corporate Assumption - Applied as a % of Revenue", "value": 100, "valueType": "% Percentage" },
+                    { "name": "Revenue Reserve",  "description": "Standard Corporate Assumption - Applied as a % of Revenue", "value": 1.5, "valueType": "% Percentage" },
+                    { "name": "Benefits Load FTE",  "description": "Standard Corporate Assumption - Applied as a % of Revenue", "value": 18.5, "valueType": "% Percentage" }]
+            })
+
+            //TODO: Make individual drivers dynamic as well eg type: OPEX, CAPEX, COGS - recurring: Non Recurring, Monthly, Annual
+        //COGS - Mission Control
+            Drivers.insert({
+                productImpacted: "Mission Control",
+                cogsDrivers: [{ "name": "Direct COGS Installation Non Recurring Expense",  "description": "Vendor NRC", "value": 500, "valueType": "$ US Dollar" },
+                    { "name": "Direct COGS Installation Non Recurring Expense",  "description": "Internal Resource Hours to Provision", "value": 100, "valueType": "$ US Dollar" },
+                    { "name": "Direct COGS Annual Non Recurring Expense", "description": "", "value": 400, "valueType": "$ US Dollar" },
+                    { "name": "Direct COGS Monthly Recurring Expense",  "description": "", "value": 23, "valueType": "$ US Dollar" },
+                    { "name": "Direct COGS Monthly Cost to Manage a Device",  "description": "", "value": 150, "valueType": "$ US Dollar" }
+                ],
+                pricingDrivers: [{ "name": "One Time Install Opex - Internal Cost to Install",  "description": "", "value": 100, "valueType": "$ US Dollar" },
+                    { "name": "One Time NRC - Monitoring Software",  "description": "", "value": 250, "valueType": "$ US Dollar" },
+                    { "name": "Monthly Opex - Monitoring Software Maintenance", "description": "", "value": 13, "valueType": "$ US Dollar" },
+                    { "name": "Annual Opex - Monitoring Software Maintenance", "description": "", "value": 150, "valueType": "$ US Dollar" },
+                    { "name": "One Time NRC -Storage Management Software & Maintenance",  "description": "", "value": 250, "valueType": "$ US Dollar" },
+                    { "name": "Monthly Opex -Storage Management Software & Maintenance",  "description": "", "value": 10, "valueType": "$ US Dollar" },
+                    { "name": "Annual Opex -Storage Management Software & Maintenance",  "description": "", "value": 250, "valueType": "$ US Dollar" }
+                ]
+
+            })
+
+
+    }
+
+
+*/
+
+
+
+
+
+
+
+//Server add
 /*
         if (Servers.find().count() == 0) {
 

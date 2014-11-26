@@ -16,6 +16,9 @@ if (Meteor.isClient) {
     AmohaCore.Subscriptions = {};
 }
 
+UI.registerHelper("AmohaCore", AmohaCore);
+
+
 // convenience
 Alerts = AmohaCore.Alerts;
 Schemas = AmohaCore.Schemas;

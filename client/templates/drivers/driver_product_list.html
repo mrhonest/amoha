@@ -1,0 +1,111 @@
+<template name="driverProductList">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-group accordion accordion-semi" id="accordion3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-target="#propsum">
+                                <i class="fa fa-angle-right"></i> Product Drivers
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="propsum" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                              {{#each driverProducts}}
+                                  <div class="label label-success">
+                                    {{productImpacted}} {{_id}} <!-- this is the unique id for each row -->
+                                  </div>
+
+                                  <table class="table no-border hover">
+                                      <thead class="no-border">
+                                      <tr>
+                                          <th style="width:2%;"><strong>Name</strong></th>
+                                          <th style="width:30%;"><strong>Value</strong></th>
+                                          <th class="text-right"><strong></strong></th>
+
+                                      </tr>
+                                      </thead>
+                                      <tbody class="no-border-y">
+
+
+
+                                      <tr><td colspan="3" class="text-center primary-emphasis-dark">Pricing Drivers</td> </tr>
+
+                                      <tr>
+                                          <td>pricingDrivers</td>
+                                          <td class="text-right color-success">$ {{pricingDrivers.installInternalNRC}}</td>
+                                          <td></td>
+                                      </tr>
+
+                                      <tr>
+                                          <td>installNRC</td>
+                                          <td class="text-right color-success">$ {{pricingDrivers.installNRC}}</td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                          <td>monthlyMonitorOpex</td>
+                                          <td class="text-right color-success">$ {{pricingDrivers.monthlyMonitorOpex}}</td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                          <td>networkNRC</td>
+                                          <td class="text-right color-success">$ {{pricingDrivers.networkNRC}}</td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                          <td>monthlyNetworkOpex</td>
+                                          <td class="text-right color-success">$ {{pricingDrivers.monthlyNetworkOpex}}</td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                          <td>annualNetworkOpex </td>
+                                          <td class="text-right color-success">$ {{pricingDrivers.annualNetworkOpex}}</td>
+                                          <td></td>
+                                      </tr>
+
+                                      <tr><td colspan="3" class="text-center primary-emphasis-dark">COGS Drivers</td> </tr>
+
+                                      <tr>
+                                          <td>installNRC</td>
+                                          <td class="text-right color-success">$ {{cogsDrivers.installNRC}}</td>
+                                          <td></td>
+                                      </tr>
+
+                                      <tr>
+                                          <td>installInternalNRC</td>
+                                          <td class="text-right color-success">$ {{cogsDrivers.installInternalNRC}}</td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                          <td>annualNRC</td>
+                                          <td class="text-right color-success">$ {{cogsDrivers.annualNRC}}</td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                          <td>monthlyRC</td>
+                                          <td class="text-right color-success">$ {{cogsDrivers.monthlyRC}}</td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                          <td>monthlyDeviceRC</td>
+                                          <td class="text-right color-success">$ {{cogsDrivers.monthlyDeviceRC}}</td>
+                                          <td></td>
+                                      </tr>
+
+
+
+
+                                      </tbody>
+                                  </table>
+
+                              {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

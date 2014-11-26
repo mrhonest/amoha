@@ -1,0 +1,78 @@
+<template name="driversList">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-group accordion accordion-semi" id="accordion3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-target="#propsum">
+                                <i class="fa fa-angle-right"></i> Drivers
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="propsum" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                {{#each drivers}}
+                                    <div class="label label-success">
+                                        {{productImpacted}} {{_id}} <!-- this is the unique id for each row -->
+                                    </div>
+
+                                    <table class="table no-border hover">
+                                        <thead class="no-border">
+                                        <tr>
+                                            <th style="width:2%;"><strong>Name</strong></th>
+                                            <th style="width:30%;"><strong>Value</strong></th>
+                                            <th class="text-right"><strong>Description</strong></th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody class="no-border-y">
+
+                                        {{#if this.details}}
+                                        {{#each this.details}}
+                                            <tr>
+                                                <td>{{name}}</td>
+                                                <td class="text-right color-success">{{value}}</td>
+                                                <td>{{description}}</td>
+                                            </tr>
+                                        {{/each}}
+                                        {{/if}}
+
+                                    {{#if this.pricingDrivers}}
+
+                                        <tr><td colspan="3" class="label-info">Pricing Drivers</td> </tr>
+                                        {{#each this.pricingDrivers}}
+                                            <tr>
+                                                <td>{{name}}</td>
+                                                <td class="text-right color-success">{{value}}</td>
+                                                <td>{{description}}</td>
+                                            </tr>
+                                        {{/each}}
+                                        {{/if}}
+
+
+                                    {{#if this.cogsDrivers}}
+                                        <tr><td colspan="3" class="label-info">COGS Drivers</td> </tr>
+                                        {{#each this.cogsDrivers}}
+
+                                            <tr>
+                                                <td>{{name}}</td>
+                                                <td class="text-right color-success">{{value}}</td>
+                                                <td>{{description}}</td>
+                                            </tr>
+                                        {{/each}}
+                                    {{/if}}
+
+                                        </tbody>
+                                    </table>
+
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
