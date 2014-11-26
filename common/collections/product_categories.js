@@ -38,6 +38,10 @@ AmohaCore.Schemas.ProductCategories = new SimpleSchema({
     categoryType :{
         type: String,
         optional: true
+    },
+    sortOrder: {
+        type: Number,
+        optional: true
     }
 
     /*

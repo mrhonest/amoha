@@ -9,12 +9,13 @@ Meteor.startup(function(){
         //add sample data
         var custID = Customers.insert({
             name: 'Acme inc',
-            msa: '123456',
+            msa: 'MSA889787',
             address: {
-                'Street': '123 Main Street',
-                'State': 'VA',
-                'Zip': '22202',
-                'Country': 'USA',
+                'street': '123 Main Street',
+                'state': 'VA',
+                'city': 'Freetown',
+                'zip': '22202',
+                'country': 'USA',
                 'telephone': '1232312232',
                 'fax': '3215343211'
             },
@@ -38,12 +39,13 @@ Meteor.startup(function(){
 
         var custID = Customers.insert({
             name: 'Double Apex',
-            msa: '123456',
+            msa: 'MSA556743',
             address: {
-                'Street': '123 Main Street',
-                'State': 'VA',
-                'Zip': '22202',
-                'Country': 'USA',
+                'street': '123 Main Street',
+                'state': 'VA',
+                'city': 'Freetown',
+                'zip': '22202',
+                'country': 'USA',
                 'telephone': '1232312232',
                 'fax': '3215343211'
             },
@@ -67,11 +69,12 @@ Meteor.startup(function(){
 
         var custID = Customers.insert({
             name: 'Pepperidge Farms',
-            msa: '123456',
+            msa: 'MSA12345',
             address: {
-                'Street': '123 Main Street',
-                'State': 'VA',
-                'Zip': '22202',
+                'street': '123 Main Street',
+                'city': 'Freetown',
+                'state': 'VA',
+                'zip': '22202',
                 'Country': 'USA',
                 'telephone': '1232312232',
                 'fax': '3215343211'
@@ -106,7 +109,8 @@ Meteor.startup(function(){
             name: 'Server Offering',
             categoryType: "Server",
             description: 'Category Description for this Category, blah blah blah blah',
-            active: 'yes'
+            active: 'yes',
+            sortOrder: "100"
         });
 
         //now insert products under this category
@@ -138,7 +142,8 @@ Meteor.startup(function(){
             name: 'Operating System',
             description: 'Operating Systems offered by us',
             categoryType : "Server",
-            active: 'yes'
+            active: 'yes',
+            sortOrder: "300"
         });
 
         Products.insert({
@@ -165,7 +170,9 @@ Meteor.startup(function(){
         var prodCatID3 = ProductCategories.insert({
             name: 'Server Chassis',
             description: 'Server Chassis offered by us',
-            active: 'yes'
+            categoryType : "Server",
+            active: 'yes',
+            sortOrder: "200"
         });
 
 
@@ -217,7 +224,8 @@ Meteor.startup(function(){
             categoryType: "Server",
             description: 'CPU Family offered by us',
             active: 'yes',
-            parent: null
+            parent: null,
+            sortOrder: "400"
         });
 
         /*
@@ -318,13 +326,65 @@ Meteor.startup(function(){
         });
 
 
+        //Memory
+        var prodCatID6 = ProductCategories.insert({
+            name: 'Memory',
+            description: 'Memory offered by us',
+            categoryType: "Server",
+            active: 'yes',
+            sortOrder: "550"
+        });
+
+        Products.insert({
+            product_category_id: prodCatID6,
+            productCategory: 'Memory',
+            productType: "Server",
+            name: "8GB RDIMM",
+            description: "8GB RDIMM",
+            cost: 85,
+            loadedCost: 95
+
+        });
+
+
+        Products.insert({
+            product_category_id: prodCatID6,
+            productCategory: 'Memory',
+            productType: "Server",
+            name: "16GB RDIMM",
+            description: "16GB RDIMM",
+            cost: 156,
+            loadedCost: 175
+
+        });
+
+        Products.insert({
+            product_category_id: prodCatID6,
+            productCategory: 'Memory',
+            productType: "Server",
+            name: "32GB RDIMM",
+            description: "32GB RDIMM",
+            cost: 449,
+            loadedCost: 505
+
+        });
+
+
+
+
+
+
+
+
         //Disks
         var prodCatID5 = ProductCategories.insert({
             name: 'Disks',
             description: 'Disks offered by us',
             categoryType: "Server",
-            active: 'yes'
+            active: 'yes',
+            sortOrder: "500"
         });
+
 
 
         Products.insert({
@@ -404,7 +464,8 @@ Meteor.startup(function(){
             name: 'Network',
             description: 'Networks offered by us',
             categoryType: "Server",
-            active: 'yes'
+            active: 'yes',
+            sortOrder: "600"
         });
 
 

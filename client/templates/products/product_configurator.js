@@ -25,8 +25,8 @@ Template.productConfigurator.helpers({
 
     productCats: function(){
 
-        //get all product cat with type Sever
-        return ProductCategories.find({categoryType: "Server"});
+        //get all product cat with type Sever //sort by order
+        return ProductCategories.find({categoryType: "Server"},{sort: {sort_order: 1}});
         /*
         var result = Products.distinct("productCategory")
         console.dir("this this" + result);
@@ -119,6 +119,21 @@ Template.productConfigurator.events({
             console.log("cpu  " + cpu);
             //add the ID
             productIDsInServer.push(cpu);
+            console.log(productIDsInServer);
+
+        }else{
+
+            throwError("CPU Not Checked");
+        }
+
+        //memory
+        var memory = $('input:radio[name="Memory"]:checked').val();
+
+        if (memory){
+
+            console.log("memory  " + memory);
+            //add the ID
+            productIDsInServer.push(memory);
             console.log(productIDsInServer);
 
         }else{

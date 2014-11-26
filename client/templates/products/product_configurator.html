@@ -13,19 +13,20 @@
             <table class="table table-hover no-border">
                 <thead class="no-border">
                 <tr>
-                    <th style="width:70%;">Product</th>
-                    <th style="width:10%;">Price</th>
-                    <th class="text-right">Choice</th>
+                    <th style="width:5%;"></th>
+                    <th style="width:80%;">Product</th>
+                    <th style="width:15%;" class="text-right">Price</th>
+
                 </tr>
                 </thead>
                 <tbody class="no-border-y">
                 {{#each productsOfferings name}}
                 <tr>
-                    <td><strong>{{name}}</strong><br /> {{description}} </td>
-                    <td>$ {{cost}} </td>
-                    <td class="text-right"><input class="icheck" data-size="small" required parsley-type="radio"  name="{{productCategory}}" value="{{_id}}" type="radio">
+                   <td><input class="icheck" data-size="small" required parsley-type="radio"  name="{{productCategory}}" value="{{_id}}" type="radio"></td>
+                    <td>
+                        <strong>{{name}}</strong><br /> {{description}} </td>
+                    <td class="text-right color-success">${{cost}} </td>
 
-                    </td>
                 </tr>
                 {{/each}}
                 </tbody>

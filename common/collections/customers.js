@@ -21,12 +21,12 @@ AmohaCore.Schemas.Customers = new SimpleSchema({
         address: {
             type: Object
         },
-        'address.Street': {
+        'address.street': {
             type: String,
             label: "Street",
             max: 200
         },
-        'address.State': {
+        'address.state': {
             type: String,
             label: "State",
             allowedValues: ["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA",
@@ -35,12 +35,17 @@ AmohaCore.Schemas.Customers = new SimpleSchema({
 
 
         },
-        'address.Zip': {
+        'address.city': {
+            type: String,
+            label: "City",
+            max: 200
+        },
+        'address.zip': {
             type: String,
             label: "Zip",
             max: 200
         },
-        'address.Country': {
+        'address.country': {
             type: String,
             label: "Country",
             max: 200
