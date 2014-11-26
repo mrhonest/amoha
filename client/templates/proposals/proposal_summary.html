@@ -59,47 +59,46 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 {{#each servers}}
-                                <div class="label label-default">
-                                    {{name}} {{_id}} <!-- this is the unique id for each row -->
+                                <div type="button" class="btn btn-primary" style="display:block" data-toggle="collapse" data-target="#propsum{{_id}}">{{name}}</div>   <!-- this is the unique id for each row -->
+                                <div class="collapse in" id="propsum{{_id}}">
+                                    <table class="table no-border hover">
+                                        <thead class="no-border">
+                                            <tr>
+                                                <th style="width:2%;"><strong>Type</strong></th>
+                                                <th style="width:30%;"><strong>Name</strong></th>
+                                                <th class="text-right"><strong>Price</strong></th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="no-border-y">
+                                            {{#each this.productsInServer}}
+                                            <tr>
+                                                <td>{{productCategory}}</td>
+                                                <td>{{productName}}</td>
+                                                <td class="text-right color-success">{{productCost}}</td>
+                                            </tr>
+                                            {{/each}}
+
+                                            <tr>
+                                                <td><strong>Total</strong></td>
+                                                <td></td>
+                                                <td class="text-right color-success"><strong>$ {{totalServerPrice}}</strong></td>
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table></div>
+                                    {{/each}}
                                 </div>
-                                <table class="table no-border hover">
-                                    <thead class="no-border">
-                                        <tr>
-                                            <th style="width:2%;"><strong>Type</strong></th>
-                                            <th style="width:30%;"><strong>Name</strong></th>
-                                            <th class="text-right"><strong>Price</strong></th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody class="no-border-y">
-                                        {{#each this.productsInServer}}
-                                        <tr>
-                                            <td>{{productCategory}}</td>
-                                            <td>{{productName}}</td>
-                                            <td class="text-right color-success">{{productCost}}</td>
-                                        </tr>
-                                        {{/each}}
-
-                                        <tr>
-                                            <td><strong>Total</strong></td>
-                                            <td></td>
-                                            <td class="text-right color-success"><strong>$ {{totalServerPrice}}</strong></td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                {{/each}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
 
 
-        </template>
+    </template>
